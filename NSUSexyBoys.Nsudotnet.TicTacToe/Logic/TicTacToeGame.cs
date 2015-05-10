@@ -12,7 +12,7 @@ namespace Logic
         public MainField Field { get; set; }
         public Player[] Players;
         private int _currentPlayer;
-        private SubField LastPicked;
+        private SubField _lastPicked;
         public TicTacToeGame(MainField field, Player p1, Player p2)
         {
 
@@ -20,7 +20,7 @@ namespace Logic
             Players[0] = p1;
             Players[1] = p2;
             Field = field;
-            LastPicked = null;
+            _lastPicked = null;
         }
 
         public void SetPlayer1(Player player)
@@ -43,14 +43,14 @@ namespace Logic
             return Players[1];
         }
 
-        public void MakeMove(int MainCol, int MainRow, int SubCol, int SubRow)
+        public void MakeMove(int mainCol, int mainRow, int subCol, int subRow)
         {
-            if (!MoveValidation(MainCol, MainRow, SubCol, SubRow)) return;
-            LastPicked = Field.Cells[SubCol, SubRow];
-            Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow] = Players[_currentPlayer].TypeLabel;
-            Field.Cells[MainCol, MainRow].FreeCells--;
+            if (!MoveValidation(mainCol, mainRow, subCol, subRow)) return;
+            _lastPicked = Field.Cells[subCol, subRow];
+            Field.Cells[mainCol, mainRow].Cells[subCol, subRow] = Players[_currentPlayer].TypeLabel;
+            Field.Cells[mainCol, mainRow].FreeCells--;
 
-            UpdateSubCondition(MainCol, MainRow);
+            UpdateSubCondition(mainCol, mainRow);
             UpdateMainCondition();
             ChangePlayer();
         }
@@ -91,9 +91,9 @@ namespace Logic
                 Field.Condition = mainCells[1, 1].Condition;
             }
         }
-        private void UpdateSubCondition(int MainCol, int MainRow)
+        private void UpdateSubCondition(int mainCol, int mainRow)
         {
-            var subField = Field.Cells[MainCol, MainRow];
+            var subField = Field.Cells[mainCol, mainRow];
             var subCells = subField.Cells;
             Field.FreeCells--;
             for (var i = 0; i < 3; i++)
@@ -126,15 +126,15 @@ namespace Logic
         {
             _currentPlayer = (_currentPlayer + 1) % 2;
         }
-        private bool MoveValidation(int MainCol, int MainRow, int SubCol, int SubRow)
+        private bool MoveValidation(int mainCol, int mainRow, int subCol, int subRow)
         {
-            if (LastPicked == null) 
+            if (_lastPicked == null) 
                 return true;
-            if (LastPicked.FreeCells == 0 &&
-                Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow].Equals(Condition.FREE))
+            if (_lastPicked.FreeCells == 0 &&
+                Field.Cells[mainCol, mainRow].Cells[subCol, subRow].Equals(Condition.FREE))
                 return true;
-            if (Field.Cells[MainCol, MainRow] == LastPicked &&
-                Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow].Equals(Condition.FREE))
+            if (Field.Cells[mainCol, mainRow] == _lastPicked &&
+                Field.Cells[mainCol, mainRow].Cells[subCol, subRow].Equals(Condition.FREE))
                 return true;
 
             return false;
