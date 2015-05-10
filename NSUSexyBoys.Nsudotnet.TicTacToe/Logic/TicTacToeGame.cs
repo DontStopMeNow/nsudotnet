@@ -55,6 +55,14 @@ namespace Logic
             ChangePlayer();
         }
 
+        public Player GetWinner()
+        {
+            if (Players[0].TypeLabel.Equals(Field.Condition))
+                return Players[0];
+            if (Players[1].TypeLabel.Equals(Field.Condition))
+                return Players[1];
+            return null;
+        }
         private void UpdateMainCondition()
         {
             var mainCells = Field.Cells;
