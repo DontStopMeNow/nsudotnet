@@ -10,8 +10,9 @@ namespace Data
     {
         public Condition[,] Cells { get; set; }
         public Condition Condition { get; set; }
-        public Boolean IsActive { get; set; }
         public int FreeCells { get; set; }
+
+        
         public SubField()
         {
             FreeCells = 9;

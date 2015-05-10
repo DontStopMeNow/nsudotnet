@@ -8,6 +8,6 @@ namespace Data
 {
     public enum Condition
     {
-        FREE, CROSS, ZERO, DEADHEAT
+        FREE, CROSS, ZERO
     }
 }
