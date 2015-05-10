@@ -14,8 +14,8 @@ namespace Data
         public int FreeCells { get; set; }
         public MainField()
         {
-            Condition = Condition.FREE;
             FreeCells = 9;
+            Condition = Condition.FREE;
             Cells = new [,] {   { new SubField(), new SubField(), new SubField() }, 
                                 { new SubField(), new SubField(), new SubField() },
                                 { new SubField(), new SubField(), new SubField() } };
