@@ -10,17 +10,22 @@ namespace Logic
     class TicTacToeGame
     {
         public MainField Field { get; set; }
-        public Player[] Players;
+        private Player[] _players;
         private int _currentPlayer;
         private SubField _lastPicked;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         public TicTacToeGame(MainField field, Player p1, Player p2)
         {
 
-            Players = new Player[2];
-            Players[0] = p1;
-            Players[1] = p2;
+            _players = new Player[2];
+            _players[0] = p1;
+            _players[1] = p2;
             Field = field;
             _lastPicked = null;
+<<<<<<< HEAD
         }
 
         public void SetPlayer1(Player player)
@@ -41,14 +46,23 @@ namespace Logic
         public Player GetPlayer2()
         {
             return Players[1];
+=======
+>>>>>>> origin/master
         }
 
         public void MakeMove(int mainCol, int mainRow, int subCol, int subRow)
         {
+<<<<<<< HEAD
             if (!MoveValidation(mainCol, mainRow, subCol, subRow)) return;
             _lastPicked = Field.Cells[subCol, subRow];
             Field.Cells[mainCol, mainRow].Cells[subCol, subRow] = Players[_currentPlayer].TypeLabel;
             Field.Cells[mainCol, mainRow].FreeCells--;
+=======
+            if (!MoveValidation(MainCol, MainRow, SubCol, SubRow)) return;
+            _lastPicked = Field.Cells[SubCol, SubRow];
+            Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow] = _players[_currentPlayer].TypeLabel;
+            Field.Cells[MainCol, MainRow].FreeCells--;
+>>>>>>> origin/master
 
             UpdateSubCondition(mainCol, mainRow);
             UpdateMainCondition();
@@ -57,10 +71,10 @@ namespace Logic
 
         public Player GetWinner()
         {
-            if (Players[0].TypeLabel.Equals(Field.Condition))
-                return Players[0];
-            if (Players[1].TypeLabel.Equals(Field.Condition))
-                return Players[1];
+            if (_players[0].TypeLabel.Equals(Field.Condition))
+                return _players[0];
+            if (_players[1].TypeLabel.Equals(Field.Condition))
+                return _players[1];
             return null;
         }
         private void UpdateMainCondition()
@@ -131,10 +145,17 @@ namespace Logic
             if (_lastPicked == null) 
                 return true;
             if (_lastPicked.FreeCells == 0 &&
+<<<<<<< HEAD
                 Field.Cells[mainCol, mainRow].Cells[subCol, subRow].Equals(Condition.FREE))
                 return true;
             if (Field.Cells[mainCol, mainRow] == _lastPicked &&
                 Field.Cells[mainCol, mainRow].Cells[subCol, subRow].Equals(Condition.FREE))
+=======
+                Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow].Equals(Condition.FREE))
+                return true;
+            if (Field.Cells[MainCol, MainRow] == _lastPicked &&
+                Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow].Equals(Condition.FREE))
+>>>>>>> origin/master
                 return true;
 
             return false;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,9 +16,9 @@ namespace Data
         {
             Condition = Condition.FREE;
             FreeCells = 9;
-            Cells = new SubField[,] {   { new SubField(), new SubField(), new SubField() }, 
-                                        { new SubField(), new SubField(), new SubField() },
-                                        { new SubField(), new SubField(), new SubField() } };
+            Cells = new [,] {   { new SubField(), new SubField(), new SubField() }, 
+                                { new SubField(), new SubField(), new SubField() },
+                                { new SubField(), new SubField(), new SubField() } };
         }
     }
 }
