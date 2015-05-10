@@ -25,16 +25,16 @@ namespace Logic
         }
 
 
-        public void MakeMove(int MainCol, int MainRow, int SubCol, int SubRow)
+        public void MakeMove(int mainCol, int mainRow, int subCol, int subRow)
         {
 
-            if (!MoveValidation(MainCol, MainRow, SubCol, SubRow)) return;
-            _lastPicked = Field.Cells[SubCol, SubRow];
-            Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow] = _players[_currentPlayer].TypeLabel;
-            Field.Cells[MainCol, MainRow].FreeCells--;
+            if (!MoveValidation(mainCol, mainRow, subCol, subRow)) return;
+            _lastPicked = Field.Cells[subCol, subRow];
+            Field.Cells[mainCol, mainRow].Cells[subCol, subRow] = _players[_currentPlayer].TypeLabel;
+            Field.Cells[mainCol, mainRow].FreeCells--;
 
 
-            UpdateSubCondition(MainCol, MainRow);
+            UpdateSubCondition(mainCol, mainRow);
             UpdateMainCondition();
             ChangePlayer();
         }
