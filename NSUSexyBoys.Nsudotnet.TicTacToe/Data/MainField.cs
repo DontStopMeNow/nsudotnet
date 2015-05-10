@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    class MainField
+    public class MainField
     {
-        public SubField[,] Cells;
-
+        public SubField[,] Cells { get; set; }
+    ;
+        public int FreeCells { get; set; }
         public MainField()
         {
             Cells = new SubField[,] {   { new SubField(), new SubField(), new SubField() }, 
