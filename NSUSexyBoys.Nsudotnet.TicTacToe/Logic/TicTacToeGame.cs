@@ -10,44 +10,25 @@ namespace Logic
     class TicTacToeGame
     {
         public MainField Field { get; set; }
-        public Player[] Players;
+        private Player[] _players;
         private int _currentPlayer;
-        private SubField LastPicked;
+        private SubField _lastPicked;
+
         public TicTacToeGame(MainField field, Player p1, Player p2)
         {
 
-            Players = new Player[2];
-            Players[0] = p1;
-            Players[1] = p2;
+            _players = new Player[2];
+            _players[0] = p1;
+            _players[1] = p2;
             Field = field;
-            LastPicked = null;
-        }
-
-        public void SetPlayer1(Player player)
-        {
-            Players[0] = player;
-        }
-
-        public void SetPlayer2(Player player)
-        {
-            Players[1] = player;
-        }
-
-        public Player GetPlayer1()
-        {
-            return Players[0];
-        }
-
-        public Player GetPlayer2()
-        {
-            return Players[1];
+            _lastPicked = null;
         }
 
         public void MakeMove(int MainCol, int MainRow, int SubCol, int SubRow)
         {
             if (!MoveValidation(MainCol, MainRow, SubCol, SubRow)) return;
-            LastPicked = Field.Cells[SubCol, SubRow];
-            Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow] = Players[_currentPlayer].TypeLabel;
+            _lastPicked = Field.Cells[SubCol, SubRow];
+            Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow] = _players[_currentPlayer].TypeLabel;
             Field.Cells[MainCol, MainRow].FreeCells--;
 
             UpdateSubCondition(MainCol, MainRow);
@@ -57,10 +38,10 @@ namespace Logic
 
         public Player GetWinner()
         {
-            if (Players[0].TypeLabel.Equals(Field.Condition))
-                return Players[0];
-            if (Players[1].TypeLabel.Equals(Field.Condition))
-                return Players[1];
+            if (_players[0].TypeLabel.Equals(Field.Condition))
+                return _players[0];
+            if (_players[1].TypeLabel.Equals(Field.Condition))
+                return _players[1];
             return null;
         }
         private void UpdateMainCondition()
@@ -128,12 +109,12 @@ namespace Logic
         }
         private bool MoveValidation(int MainCol, int MainRow, int SubCol, int SubRow)
         {
-            if (LastPicked == null) 
+            if (_lastPicked == null) 
                 return true;
-            if (LastPicked.FreeCells == 0 &&
+            if (_lastPicked.FreeCells == 0 &&
                 Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow].Equals(Condition.FREE))
                 return true;
-            if (Field.Cells[MainCol, MainRow] == LastPicked &&
+            if (Field.Cells[MainCol, MainRow] == _lastPicked &&
                 Field.Cells[MainCol, MainRow].Cells[SubCol, SubRow].Equals(Condition.FREE))
                 return true;
 
