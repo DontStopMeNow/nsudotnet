@@ -23,5 +23,11 @@ namespace Data
                 }
             }
         }
+
+        public Player(string name, Condition lbl)
+        {
+            Name = name;
+            TypeLabel = lbl;
+        }
     }
 }

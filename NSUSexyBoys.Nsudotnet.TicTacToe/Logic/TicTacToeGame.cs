@@ -7,21 +7,15 @@ using Data;
 
 namespace Logic
 {
-    class TicTacToeGame
+    class TicTacToeGame : ITicTacToeService
     {
         public MainField Field { get; set; }
         private Player[] _players;
         private int _currentPlayer;
         private SubField _lastPicked;
 
-        public TicTacToeGame(MainField field, Player p1, Player p2)
+        public TicTacToeGame()
         {
-
-            _players = new Player[2];
-            _players[0] = p1;
-            _players[1] = p2;
-            Field = field;
-            _lastPicked = null;
         }
 
 
@@ -39,6 +33,40 @@ namespace Logic
             ChangePlayer();
         }
 
+        public Player GetPlayer1()
+        {
+            return _players[0];
+        }
+
+        public Player GetPlayer2()
+        {
+            return _players[1];
+        }
+
+        public int GetCurrentPlayer()
+        {
+            return _currentPlayer;
+        }
+
+        public int GetSub(int mainCol, int mainRow, int subCol, int subRow)
+        {
+            return (int) Field.Cells[mainCol, mainRow].Cells[subCol, subRow];
+        }
+
+        public int GetMain(int mainCol, int mainRow)
+        {
+            return (int) Field.Cells[mainCol, mainRow].Condition;
+        }
+
+        public void NewGame(String playerName1, String playerName2)
+        {
+            _players = new Player[2];
+            _players[0] = new Player(playerName1, Condition.CROSS);
+            _players[1] = new Player(playerName2, Condition.ZERO);
+            Field = new MainField();
+            _lastPicked = null;
+        }
+
         public Player GetWinner()
         {
             if (_players[0].TypeLabel.Equals(Field.Condition))
@@ -47,6 +75,7 @@ namespace Logic
                 return _players[1];
             return null;
         }
+
         private void UpdateMainCondition()
         {
             var mainCells = Field.Cells;
@@ -75,6 +104,7 @@ namespace Logic
                 Field.Condition = mainCells[1, 1].Condition;
             }
         }
+
         private void UpdateSubCondition(int mainCol, int mainRow)
         {
             var subField = Field.Cells[mainCol, mainRow];
