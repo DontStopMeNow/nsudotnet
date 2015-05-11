@@ -17,6 +17,5 @@ namespace Logic
         int GetMain(int mainCol, int mainRow);
         void NewGame(String playerName1, String playerName2);
         Player GetWinner();
-
     }
 }

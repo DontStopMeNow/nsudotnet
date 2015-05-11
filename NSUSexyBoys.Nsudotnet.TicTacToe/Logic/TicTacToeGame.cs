@@ -7,7 +7,7 @@ using Data;
 
 namespace Logic
 {
-    class TicTacToeGame : ITicTacToeService
+    public class TicTacToeGame : ITicTacToeService
     {
         public MainField Field { get; set; }
         private Player[] _players;
