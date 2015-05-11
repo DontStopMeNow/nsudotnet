@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data;
 
 namespace GUI.ViewModels
 {
@@ -13,20 +14,20 @@ namespace GUI.ViewModels
         public char Value { get; set; }
         public int SizeText { get; set; }
 
-        protected FieldElement(int row, int column, int value)
+        protected FieldElement(int row, int column, Condition value)
         {
             Row = row;
             Column = column;
             
             switch (value)
             {
-                case 0:
+                case Condition.FREE:
                     Value = ' ';
                     break;
-                case 1:
+                case Condition.CROSS:
                     Value = 'x';
                     break;
-                case 2:
+                case Condition.ZERO:
                     Value = 'o';
                     break;
             }

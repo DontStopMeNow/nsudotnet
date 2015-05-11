@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{D2E1E4AE-9956-47D8-BE1C-501451DBA8E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{4578EA87-F84C-42A4-93D3-933B7528EF84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{5414362A-824E-4CB5-B8F8-D5ED0218B783}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D2E1E4AE-9956-47D8-BE1C-501451DBA8E8} = {D2E1E4AE-9956-47D8-BE1C-501451DBA8E8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
