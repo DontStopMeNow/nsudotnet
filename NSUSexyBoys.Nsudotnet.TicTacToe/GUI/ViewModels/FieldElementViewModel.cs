@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data;
+using Logic;
 
 namespace GUI.ViewModels
 {
@@ -13,12 +14,12 @@ namespace GUI.ViewModels
         public int Column { get; set; }
         public char Value { get; set; }
         public int SizeText { get; set; }
-
-        protected FieldElementViewModel(int row, int column, Condition value)
+        protected ITicTacToeService _game;
+        protected FieldElementViewModel(int row, int column, Condition value, ITicTacToeService game)
         {
             Row = row;
             Column = column;
-            
+            _game = game;
             switch (value)
             {
                 case Condition.FREE:
