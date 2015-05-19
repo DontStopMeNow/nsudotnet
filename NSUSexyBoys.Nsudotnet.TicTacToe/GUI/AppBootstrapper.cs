@@ -11,16 +11,11 @@ using Logic;
 
 namespace GUI
 {
-    class AppBootstrapper : AutofacBootstrapper<MainViewModel>
+    class AppBootstrapper : TypedAutofacBootStrapper<MainViewModel>
     {
         protected override void ConfigureContainer(ContainerBuilder builder)
         {
             base.ConfigureContainer(builder);
-
-            builder
-                .Register(с => Container)
-                .As<IContainer>();
-
             builder
                 .RegisterType<TicTacToeGame>()
                 .As<ITicTacToeService>();
