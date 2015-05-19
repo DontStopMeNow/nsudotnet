@@ -16,9 +16,9 @@ namespace GUI.ViewModels
             Cells = new BindableCollection<SubFieldElementViewModel>();
             for (var i = 0; i < 9; i++)
             {
-                Cells.Add(new SubFieldElementViewModel(i/3, i%3, Condition.FREE));
+                Cells.Add(new SubFieldElementViewModel(i/3, i%3, Condition.CROSS));
             }
-            SizeText = 30;
+            SizeText = 50;
         }
     }
 }

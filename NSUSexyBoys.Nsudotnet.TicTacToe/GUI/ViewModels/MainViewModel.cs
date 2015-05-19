@@ -20,7 +20,7 @@ namespace GUI.ViewModels
             Cells = new BindableCollection<MainFieldElement>();
             for (var i = 0; i < 9; i++)
             {
-                Cells.Add(new MainFieldElement(i/3, i%3, Condition.FREE));
+                Cells.Add(new MainFieldElement(i/3, i%3, Condition.ZERO));
             }
         }
     }
