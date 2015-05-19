@@ -7,14 +7,14 @@ using Data;
 
 namespace GUI.ViewModels
 {
-    public abstract class FieldElement
+    public abstract class FieldElementViewModel
     {
         public int Row { get; set; }
         public int Column { get; set; }
         public char Value { get; set; }
         public int SizeText { get; set; }
 
-        protected FieldElement(int row, int column, Condition value)
+        protected FieldElementViewModel(int row, int column, Condition value)
         {
             Row = row;
             Column = column;

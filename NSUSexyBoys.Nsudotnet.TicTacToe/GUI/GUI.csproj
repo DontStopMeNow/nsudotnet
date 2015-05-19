@@ -84,13 +84,13 @@
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="TypedAutofacBootStrapper.cs" />
-    <Compile Include="ViewModels\FieldElement.cs" />
-    <Compile Include="ViewModels\MainFieldElement.cs" />
+    <Compile Include="ViewModels\FieldElementViewModel.cs" />
+    <Compile Include="ViewModels\MainFieldElementViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\SubFieldElement.cs" />
-    <Compile Include="Views\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\SubFieldElementViewModel.cs" />
+    <Compile Include="Views\MainFieldElementView.xaml.cs" />
+    <Compile Include="Views\MainView.xaml.cs" />
+    <Compile Include="Views\SubFieldElementView.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -131,9 +131,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MainView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\MainFieldElementView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubFieldElementView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

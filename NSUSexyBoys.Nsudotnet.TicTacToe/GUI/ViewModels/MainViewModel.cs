@@ -4,8 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Autofac;
 using Caliburn.Micro;
+using Data;
 using Logic;
 
 namespace GUI.ViewModels
@@ -13,23 +13,15 @@ namespace GUI.ViewModels
     class MainViewModel : PropertyChangedBase
     {
         private ITicTacToeService _game;
-
+        public BindableCollection<MainFieldElement> Cells { get; set; }
         public MainViewModel(ITicTacToeService game)
         {
             _game = game;
+            Cells = new BindableCollection<MainFieldElement>();
+            for (var i = 0; i < 9; i++)
+            {
+                Cells.Add(new MainFieldElement(i/3, i%3, Condition.FREE));
+            }
         }
-
-        public ObservableCollection<FieldElement> _mainFieldElements {get; set; }
-        public ObservableCollection<FieldElement> _subFieldElements  {get; set; }
-
-        public string _firstPlayerName  { get; set; }
-        public string _secondPlayerName { get; set; }
-
-        public int _currentPlayer { get; set; }
-
-        /*public MainViewModel(IContainer container)
-        {
-            _game = container.Resolve<ITicTacToeService>();
-        }*/
     }
 }
