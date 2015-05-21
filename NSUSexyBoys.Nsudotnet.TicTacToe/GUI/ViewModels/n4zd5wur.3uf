@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using Caliburn.Micro;
+using Logic;
+using Condition = Data.Condition;
+
+namespace GUI.ViewModels
+{
+    class MainViewModel : PropertyChangedBase
+    {
+        private ITicTacToeService _game;
+        public Visibility Play { get; set; }
+        public BindableCollection<MainFieldElementViewModel> Cells { get; set; }
+        public MainViewModel(ITicTacToeService game)
+        {
+            Play = Visibility.Hidden;
+            _game = game;
+            Cells = new BindableCollection<MainFieldElementViewModel>();
+            for (var i = 0; i < 9; i++)
+            {
+                Cells.Add(new MainFieldElementViewModel(i / 3, i % 3, Condition.FREE, game));
+            }
+        }
+
+        public void NewGame()
+        {
+            Play = Visibility.Visible;
+            _game = new TicTacToeGame();
+            Cells = new BindableCollection<MainFieldElementViewModel>();
+            for (var i = 0; i < 9; i++)
+            {
+                Cells.Add(new MainFieldElementViewModel(i / 3, i % 3, Condition.FREE, _game));
+            }
+            NotifyOfPropertyChange(() => _game);
+            NotifyOfPropertyChange(() => Cells);
+        }
+    }
+}

@@ -111,8 +111,11 @@ namespace Logic
 
         private void UpdateSubCondition(int mainCol, int mainRow)
         {
+            
             var subField = Field.Cells[mainCol, mainRow];
             var subCells = subField.Cells;
+            if (subField.Condition != Condition.FREE)
+                return;
             Field.FreeCells--;
             for (var i = 0; i < 3; i++)
             {
