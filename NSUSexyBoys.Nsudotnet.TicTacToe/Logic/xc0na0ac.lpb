@@ -86,24 +86,24 @@ namespace Logic
 
             for (var i = 0; i < 3; i++)
             {
-                if ((mainCells[i, 0].Condition == mainCells[i, 1].Condition) &&
-                    (mainCells[i, 1].Condition == mainCells[i, 2].Condition) && mainCells[i, 0].Condition != Condition.FREE)
+                if ((mainCells[i, 0].Condition == mainCells[i, 1].Condition) && 
+                    (mainCells[i, 1].Condition == mainCells[i, 2].Condition))
                 {
                     Field.Condition = mainCells[i, 0].Condition;
                 }
-                if ((mainCells[0, i].Condition == mainCells[1, i].Condition) &&
-                    (mainCells[1, i].Condition == mainCells[2, i].Condition) && mainCells[0, i].Condition != Condition.FREE)
+                if ((mainCells[0, i].Condition == mainCells[1, i].Condition) && 
+                    (mainCells[1, i].Condition == mainCells[2, i].Condition))
                 {
                     Field.Condition = mainCells[0, i].Condition;
                 }
             }
-            if ((mainCells[0, 0].Condition == mainCells[1, 1].Condition) &&
-                (mainCells[1, 1].Condition == mainCells[2, 2].Condition) && mainCells[0, 0].Condition != Condition.FREE)
+            if ((mainCells[0, 0].Condition == mainCells[1, 1].Condition) && 
+                (mainCells[1, 1].Condition == mainCells[2, 2].Condition))
             {
                 Field.Condition = mainCells[0, 0].Condition;
             }
-            if ((mainCells[2, 0].Condition == mainCells[1, 1].Condition) &&
-                (mainCells[1, 1].Condition == mainCells[0, 2].Condition) && mainCells[2, 0].Condition != Condition.FREE)
+            if ((mainCells[2, 0].Condition == mainCells[1, 1].Condition) && 
+                (mainCells[1, 1].Condition == mainCells[0, 2].Condition))
             {
                 Field.Condition = mainCells[1, 1].Condition;
             }

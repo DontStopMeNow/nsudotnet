@@ -10,17 +10,26 @@ using Logic;
 
 namespace GUI.ViewModels
 {
-    class MainFieldElement: FieldElementViewModel
+    class MainFieldElementViewModel: FieldElementViewModel
     {
         public BindableCollection<SubFieldElementViewModel> Cells { get; set; }
-        public MainFieldElement(int row, int column, Condition value, ITicTacToeService game) : base(row, column, value, game)
+        private MainViewModel _mainFild;
+        public MainFieldElementViewModel(int row, int column, Condition value, MainViewModel mainFild, ITicTacToeService game)
+            : base(row, column, value, game)
         {
+            _mainFild = mainFild;
             Cells = new BindableCollection<SubFieldElementViewModel>();
             for (var i = 0; i < 9; i++)
             {
-                Cells.Add(new SubFieldElementViewModel(i/3, i%3, row, column, Condition.FREE, game));
+                Cells.Add(new SubFieldElementViewModel(i/3, i%3, this, Condition.FREE, game));
             }
             SizeText = 50;
+        }
+
+        public void Refresh()
+        {
+            NotifyOfPropertyChange(() => Value);
+            _mainFild.Refresh();
         }
     }
 }

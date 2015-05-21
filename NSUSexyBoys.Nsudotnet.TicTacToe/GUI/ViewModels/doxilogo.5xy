@@ -10,7 +10,7 @@ namespace GUI.ViewModels
 {
     class SubFieldElementViewModel: FieldElementViewModel
     {
-        private readonly MainFieldElementViewModel _mainFild;
+        private MainFieldElementViewModel _mainFild;
         public SubFieldElementViewModel(int row, int column, MainFieldElementViewModel mainField, Condition value, ITicTacToeService game)
             : base(row, column, value, game)
         {
@@ -22,8 +22,8 @@ namespace GUI.ViewModels
         {
             _game.MakeMove(_mainFild.Column, _mainFild.Row, Column, Row);
             Value = ConditionToChar.GetChar(_game.GetSub(_mainFild.Column, _mainFild.Row, Column, Row));
-            _mainFild.Value = ConditionToChar.GetChar(_game.GetMain(_mainFild.Column, _mainFild.Row));
-            _mainFild.Refresh();
+            _mainFild.Value = 'x';
+            NotifyOfPropertyChange(() => _mainFild.Value);
             NotifyOfPropertyChange(() => Value);
         }
     }
