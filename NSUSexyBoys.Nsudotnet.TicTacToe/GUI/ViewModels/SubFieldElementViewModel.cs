@@ -21,7 +21,9 @@ namespace GUI.ViewModels
 
         public void Click()
         {
-            _game.MakeMove(_parentRow, _parentColumn, Row, Column);
+            _game.MakeMove(_parentColumn, _parentRow, Column, Row);
+            Value = ConditionToChar.GetChar(_game.GetSub(_parentColumn, _parentRow, Column, Row));
+            NotifyOfPropertyChange(() => Value);
         }
     }
 }

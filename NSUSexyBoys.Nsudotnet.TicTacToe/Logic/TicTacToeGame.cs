@@ -16,6 +16,10 @@ namespace Logic
 
         public TicTacToeGame()
         {
+            Field = new MainField();
+            _players = new Player[2];
+            _players[0] = new Player("player_0", Condition.CROSS);
+            _players[1] = new Player("player_1", Condition.ZERO);
         }
 
 
@@ -48,14 +52,14 @@ namespace Logic
             return _currentPlayer;
         }
 
-        public int GetSub(int mainCol, int mainRow, int subCol, int subRow)
+        public Condition GetSub(int mainCol, int mainRow, int subCol, int subRow)
         {
-            return (int) Field.Cells[mainCol, mainRow].Cells[subCol, subRow];
+            return Field.Cells[mainCol, mainRow].Cells[subCol, subRow];
         }
 
-        public int GetMain(int mainCol, int mainRow)
+        public Condition GetMain(int mainCol, int mainRow)
         {
-            return (int) Field.Cells[mainCol, mainRow].Condition;
+            return Field.Cells[mainCol, mainRow].Condition;
         }
 
         public void NewGame(String playerName1, String playerName2)

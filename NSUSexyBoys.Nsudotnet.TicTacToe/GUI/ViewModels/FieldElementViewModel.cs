@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Caliburn.Micro;
 using Data;
 using Logic;
 
 namespace GUI.ViewModels
 {
-    public abstract class FieldElementViewModel
+    public abstract class FieldElementViewModel : PropertyChangedBase
     {
         public int Row { get; set; }
         public int Column { get; set; }
@@ -20,18 +21,8 @@ namespace GUI.ViewModels
             Row = row;
             Column = column;
             _game = game;
-            switch (value)
-            {
-                case Condition.FREE:
-                    Value = ' ';
-                    break;
-                case Condition.CROSS:
-                    Value = 'x';
-                    break;
-                case Condition.ZERO:
-                    Value = 'o';
-                    break;
-            }
+            Value = ConditionToChar.GetChar(value);
         }
+
     }
 }
