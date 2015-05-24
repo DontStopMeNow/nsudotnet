@@ -12,7 +12,7 @@
         <viewModels:ConverterConditionToChar x:Key="ConditionToChar" />
     </UserControl.Resources>
     <Grid>
-        <Button Name="Click" Background="#00000000" Content="{Binding Value, Converter={StaticResource ConditionToChar}}" ContentStringFormat="" FontSize ="{Binding SizeText}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="40">
+        <Button Name="Click" Background="#00000000" Content="{Binding Value, Converter={StaticResource ConditionToChar}}" FontSize ="{Binding SizeText}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="40">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <cal:ActionMessage MethodName="Click">
