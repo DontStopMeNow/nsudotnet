@@ -8,6 +8,9 @@
     
     <Grid  Background="#F0FFF0">
 
+        <TextBlock Text="{Binding Winner}" Foreground="Black" FontSize="30" HorizontalAlignment ="Center" VerticalAlignment="Center" Background="#00AAAAAA">
+
+        </TextBlock>
         <WrapPanel Margin="50,100,50,50" Visibility="{Binding Play}" Background="#FFDAB9">
             <ItemsControl ItemsSource="{Binding Cells}">
                 <ItemsControl.ItemsPanel>
@@ -27,9 +30,7 @@
         <Button Name="NewGame" cal:Message.Attach="NewGame" Background="#FFE4E1" BorderThickness ="7" BorderBrush="Black" Content="New Game"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="294" Margin="50,31,50,350">
 
         </Button>
-        <TextBlock Text="{Binding Winner}" Foreground="Black" FontSize="30" HorizontalAlignment ="Center" VerticalAlignment="Center" Background="#00AAAAAA">
-
-        </TextBlock>
+        
     </Grid>
 
 </Window>
