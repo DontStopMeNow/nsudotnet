@@ -13,7 +13,7 @@ namespace GUI.ViewModels
     {
         public int Row { get; set; }
         public int Column { get; set; }
-        public char Value { get; set; }
+        public Condition Value { get; set; }
         public int SizeText { get; set; }
         protected ITicTacToeService _game;
         protected FieldElementViewModel(int row, int column, Condition value, ITicTacToeService game)
@@ -21,7 +21,7 @@ namespace GUI.ViewModels
             Row = row;
             Column = column;
             _game = game;
-            Value = ConditionToChar.GetChar(value);
+            Value = value;
         }
 
     }

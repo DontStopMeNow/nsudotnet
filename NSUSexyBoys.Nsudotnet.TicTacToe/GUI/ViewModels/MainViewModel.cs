@@ -53,7 +53,7 @@ namespace GUI.ViewModels
             if (win != null)
             {
                 Play = Visibility.Hidden;
-                Winner = ConditionToChar.GetChar(win.TypeLabel) + " is winner!";
+                Winner = (win.TypeLabel).ToString() + " is winner!";
                 NotifyOfPropertyChange(() => Play);
                 NotifyOfPropertyChange(() => Winner);
             }

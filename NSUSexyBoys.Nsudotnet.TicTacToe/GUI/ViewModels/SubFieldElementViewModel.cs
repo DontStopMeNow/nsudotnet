@@ -21,8 +21,8 @@ namespace GUI.ViewModels
         public void Click()
         {
             _game.MakeMove(_mainFild.Column, _mainFild.Row, Column, Row);
-            Value = ConditionToChar.GetChar(_game.GetSub(_mainFild.Column, _mainFild.Row, Column, Row));
-            _mainFild.Value = ConditionToChar.GetChar(_game.GetMain(_mainFild.Column, _mainFild.Row));
+            Value = _game.GetSub(_mainFild.Column, _mainFild.Row, Column, Row);
+            _mainFild.Value = _game.GetMain(_mainFild.Column, _mainFild.Row);
             _mainFild.Refresh();
             NotifyOfPropertyChange(() => Value);
         }

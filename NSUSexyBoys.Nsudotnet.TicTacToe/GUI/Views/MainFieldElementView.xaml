@@ -7,10 +7,14 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:cal="http://www.caliburnproject.org"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels"
              mc:Ignorable="d" 
+             
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <viewModels:ConverterConditionToChar x:Key="ConditionToChar" />
+    </UserControl.Resources>
     <Grid>
-        
         <WrapPanel>
             <ItemsControl ItemsSource="{Binding Cells}">
                 <ItemsControl.ItemsPanel>
@@ -28,7 +32,7 @@
             </ItemsControl>
 
         </WrapPanel>
-        <TextBlock Text="{Binding Value}" Foreground="#70000000" FontSize="{Binding SizeText}" HorizontalAlignment ="Center" VerticalAlignment="Center" Background="#00AAAAAA">
+        <TextBlock Text="{Binding Value, Converter={StaticResource ConditionToChar}}" Foreground="#70000000" FontSize="{Binding SizeText}" HorizontalAlignment ="Center" VerticalAlignment="Center" Background="#00AAAAAA">
             
          </TextBlock>
     </Grid>

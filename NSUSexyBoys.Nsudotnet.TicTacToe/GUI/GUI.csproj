@@ -84,11 +84,11 @@
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="TypedAutofacBootStrapper.cs" />
-    <Compile Include="ViewModels\ConditionToChar.cs" />
     <Compile Include="ViewModels\FieldElementViewModel.cs" />
     <Compile Include="ViewModels\MainFieldElementViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SubFieldElementViewModel.cs" />
+    <Compile Include="ViewModels\ConverterConditionToChar.cs" />
     <Compile Include="Views\MainFieldElementView.xaml.cs" />
     <Compile Include="Views\MainView.xaml.cs" />
     <Compile Include="Views\SubFieldElementView.xaml.cs" />
