@@ -1,7 +1,8 @@
 ﻿<Application x:Class="GUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local ="clr-namespace:GUI">
+             xmlns:local ="clr-namespace:GUI"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -9,6 +10,7 @@
                     <local:AppBootstrapper x:Key="Bootstrapper"/>    
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+            <viewModels:ConverterConditionToChar x:Key="ConditionToChar" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
