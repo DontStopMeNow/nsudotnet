@@ -8,7 +8,7 @@
     
     <Grid  Background="#F0FFF0">
 
-        <WrapPanel Margin="50,100,50,50" Visibility="{Binding Play}">
+        <WrapPanel Margin="50,100,50,50" Visibility="{Binding Play}" Background="#FFDAB9">
             <ItemsControl ItemsSource="{Binding Cells}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

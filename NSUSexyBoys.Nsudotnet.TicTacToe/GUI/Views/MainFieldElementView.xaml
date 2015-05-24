@@ -15,6 +15,9 @@
         <viewModels:ConverterConditionToChar x:Key="ConditionToChar" />
     </UserControl.Resources>
     <Grid>
+        <TextBlock Text="{Binding Value, Converter={StaticResource ConditionToChar}}" Foreground="#70000000" FontSize="{Binding SizeText}" HorizontalAlignment ="Center" VerticalAlignment="Center">
+
+        </TextBlock>
         <WrapPanel>
             <ItemsControl ItemsSource="{Binding Cells}">
                 <ItemsControl.ItemsPanel>
@@ -32,8 +35,6 @@
             </ItemsControl>
 
         </WrapPanel>
-        <TextBlock Text="{Binding Value, Converter={StaticResource ConditionToChar}}" Foreground="#70000000" FontSize="{Binding SizeText}" HorizontalAlignment ="Center" VerticalAlignment="Center" Background="#00AAAAAA">
-            
-         </TextBlock>
+        
     </Grid>
 </UserControl>
